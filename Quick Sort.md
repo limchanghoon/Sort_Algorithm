@@ -1,26 +1,23 @@
----
+# Quick Sort
 
+```c++
 
----
-
-<h1 id="quick-sort">Quick Sort</h1>
-<pre><code>
 void quickSort(int* data, int start, int end) {
-    if (start &gt;= end) {
+    if (start >= end) {
         return;
     }
 
     int key = start;
     int i = start + 1, j = end, temp;
 
-    while (i &lt;= j) {
-        while (i &lt;= end &amp;&amp; data[i] &lt;= data[key]) {  //큰 값을 만날 때까지
+    while (i <= j) {
+        while (i <= end && data[i] <= data[key]) {  //큰 값을 만날 때까지
             i++;
         }
-        while (j &gt; start &amp;&amp; data[j] &gt;= data[key]) { //작은 값을 만날 때까지
+        while (j > start && data[j] >= data[key]) { //작은 값을 만날 때까지
             j--;
         }
-        if (i &gt; j) {
+        if (i > j) {
             temp = data[j];
             data[j] = data[key];
             data[key] = temp;
@@ -35,5 +32,5 @@ void quickSort(int* data, int start, int end) {
     quickSort(data, start, j - 1);
     quickSort(data, j + 1, end);
 }
-</code></pre>
+```
 
